@@ -109,7 +109,7 @@ class photoHandler {
 			$tmp = getimagesize( $this->source );
 			
 			imagecopyresampled( $tgt, $src, 0, 0, 0, 0, $width, $height, $tmp[0], $tmp[1] );
-			imagejpeg( $tgt, $savePath, 100 );
+			imagejpeg( $tgt, $savePath, 80 );
 			
 		}
 	
