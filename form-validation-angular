@@ -1,0 +1,90 @@
+<form ng-app="ServiceRequestApp" ng-controller="validateCtrl" name="ServiceRequestForm" novalidate>
+
+						<div>
+
+							<div>
+
+								<input type="text" name="name" placeholder="{{name}}" ng-model="inputText1" required>
+								<span style="color:#ff83a8;" ng-show="ServiceRequestForm.name.$dirty && ServiceRequestForm.name.$invalid">
+								<span ng-show="ServiceRequestForm.name.$error.required">Your name is required.</span>
+								</span>
+
+							</div>
+
+							<div>
+
+								<input type="email" name="email" placeholder="{{email}}" ng-model="inputText2" required>
+								<span style="color:#ff83a8;" ng-show="ServiceRequestForm.email.$dirty && ServiceRequestForm.email.$invalid">
+								<span ng-show="ServiceRequestForm.email.$error.required">An email address is required.</span>
+								<span ng-show="ServiceRequestForm.email.$error.email">Invalid email address.</span>
+								</span>
+
+							</div>
+
+						</div>
+
+						<div>
+
+							<div>
+
+								<input type="text" name="location" placeholder="{{location}}" ng-model="inputText3" required>
+								<span style="color:#ff83a8;" ng-show="ServiceRequestForm.location.$dirty && ServiceRequestForm.location.$invalid">
+								<span ng-show="ServiceRequestForm.location.$error.required">Where are you located?</span>
+								</span>
+
+							</div>
+
+							<div>
+
+								<input type="text" name="budget" placeholder="{{budget}}" ng-model="inputText4" required>
+								<span style="color:#ff83a8;" ng-show="ServiceRequestForm.budget.$dirty && ServiceRequestForm.budget.$invalid">
+								<span ng-show="ServiceRequestForm.budget.$error.required">What is your budget?</span>
+								</span>
+
+							</div>
+
+						</div>
+
+						<div>
+
+							<div>
+
+								<textarea name="serviceNeeded" placeholder="{{serviceNeeded}}" rows="6" ng-model="inputText5" required></textarea>
+								<span style="color:#ff83a8;" ng-show="ServiceRequestForm.serviceNeeded.$dirty && ServiceRequestForm.serviceNeeded.$invalid">
+								<span ng-show="ServiceRequestForm.serviceNeeded.$error.required">Briefly tell us what type of services your need.</span>
+								</span>
+
+							</div>
+
+						</div>
+
+						<div>
+
+							<div>
+
+								<ul>
+
+									<li><input type="submit" name="submit" value="Send Request" ng-disabled="ServiceRequestForm.name.$dirty && ServiceRequestForm.name.$invalid || 
+																											ServiceRequestForm.email.$dirty && ServiceRequestForm.email.$invalid || 
+																											ServiceRequestForm.location.$dirty && ServiceRequestForm.location.$invalid || 
+																											ServiceRequestForm.budget.$dirty && ServiceRequestForm.budget.$invalid || 
+																											ServiceRequestForm.serviceNeeded.$dirty && ServiceRequestForm.serviceNeeded.$invalid"></li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</form>
+
+				<script>
+				var app = angular.module('ServiceRequestApp', []);
+				app.controller('validateCtrl', function($scope) {
+					$scope.name = 'Your Name';
+					$scope.email = 'youremail@email.com';
+					$scope.location = 'Location';
+					$scope.budget = 'Budget';
+					$scope.serviceNeeded = 'Service Needed';
+				});
+				</script>
